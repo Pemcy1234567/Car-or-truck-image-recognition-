@@ -8,34 +8,19 @@ Our objective is to figure out how a neural network can interpret a natural imag
   <summary>Imports</summary>
   
 ```python
-import numpy as np
 import pandas as pd
-from sklearn import preprocessing
-import datetime
-from scipy.stats import norm
-from matplotlib import pyplot as plt
-from scipy.signal import find_peaks
-from sklearn.metrics import mean_squared_error, r2_score
-import time
-import sounddevice as sd
-import shutil
-import keyboard
-from scipy.io.wavfile import write
-from scipy.signal import find_peaks
-import tensorflow as tf
-from tensorflow.keras.layers import Conv1D, Dense, Input, Reshape, Flatten, GlobalMaxPooling1D, MaxPooling1D, \
-    BatchNormalization, Dropout
-from tensorflow.keras import Sequential
+import numpy as np
 from tensorflow.keras.callbacks import EarlyStopping, TerminateOnNaN, TensorBoard
-from tensorflow.keras.optimizers import Adam
-import librosa
-from tensorboard.plugins.hparams import api as hp
-import os
-import random
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_absolute_error
-from sklearn.metrics import mean_absolute_error
-from sklearn.model_selection import cross_val_score
+from tensorflow.keras.preprocessing import image_dataset_from_directory
+from PIL import Image
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+import sklearn
+from tensorflow.keras.layers.experimental import preprocessing
+import datetime
+from keras import Sequential
+from keras.preprocessing.image import ImageDataGenerator
 ```
 </details>
 
@@ -64,7 +49,42 @@ test_generator = test_datagen.flow_from_directory(
     )
 ```
 
-The flow_from_directory() function generates a tf.data.Dataset, from images files in a directory. As shown before now every images has a RGB value ranging between 0 and 1. I won't go into detail of every parameter only the most imporatant. Firstly, the target_size parameter simply resize's the image to a specific amount of pixels. This is essential, because the model can only take a specific amount of pixels.
+The flow_from_directory() function generates a tf.data.Dataset, from images files in a directory. This function acctually makes it that every image in this directory has a RGB value ranging between 0 and 1. I won't go into detail of every parameter I will only be going through the most imporatant. Firstly, the target_size parameter - this simply resize's the image to a specific amount of pixels by zooming into the picture. This is important, because the neurons can only take a specific amount of pixels. Secondly, the class_mode - this simply is telling the fuction if I have one or more classes to classify. The two main strings herer are 'binray' and 'catagorical'. 'Binary' means the labels will be 1D binary labels, whilst the 'catagorical' string means the labels will be 2D one-hot encoded.
+
+## Model
+
+```python
+model = Sequential([
+
+    preprocessing.RandomContrast(0.3),
+
+    layers.Conv2D(filters=32, kernel_size=5, activation="relu", padding='same',
+                  input_shape=[128, 128, 3]),
+    layers.MaxPool2D(),
+
+    layers.Conv2D(filters=64, kernel_size=3, activation="relu", padding='same'),
+    layers.MaxPool2D(),
+
+    layers.Conv2D(filters=128, kernel_size=3, activation="relu", padding='same'),
+    layers.MaxPool2D(),
+
+    layers.Flatten(),
+    layers.Dense(units=12, activation="relu"),
+    layers.Dropout(0.4),
+    layers.BatchNormalization(),
+    layers.Dense(units=12, activation="relu"),
+    layers.Dense(units=1, activation="sigmoid"),
+])
+```
+
+### Data Augmentation
+### Convelution and ReLu
+### Max Pooling
+### Sliding window
+### Dropout
+### BatchNormalization
+
+
 
 ![A broad overview](./Broad overview of CNN.png.png)
 
