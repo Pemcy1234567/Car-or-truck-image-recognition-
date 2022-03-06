@@ -89,7 +89,7 @@ For example this image here is from the data set. This image will be augemnetion
 
 Before data augmentation   |  After data augmentation
 :-------------------------:|:-------------------------:
-![](https://www.kaggleusercontent.com/kf/79128151/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..LfH1zOGWvLB6Qoz4qA_08A.0E0NiLLd-wnXT8Jbqv6sFYpBp6mWk7XyNpmxXTH0ySqfZ9lzphI0ipYWGbmqv00n9lD810Lr4LfvKPu_9OJidoFZy6L7AWzOsHV7PD1APlIB2VjZKxQt_g6pacaVYhE5u0Si65I7MVnqmyXsbe61bOabdgviE8EOO-b4IMpqkO_z-pFVdMG_5_84JKxOuuqJ9tWydfBqshLeKY02s-lGHdIhc2mi8iZbHtzoKl4T3AmaITSGxQoxqWSEyb-ybHV65MjjVJHDrF9SIuDhh5_f5p_FKxaVhOOsDG8vxShhD6rYmWBrxu4tXyZCa9A7LF5rq2wfhPx8g4Z5wylzI1rm7yxuPucbCOQHwyDeyj_uQG7lt9fOWDHyhf7ql5mOzpLZaICksmlp0gvOscyH_cO_khSmW8f-BPAdBC1CukPfXpRjrvol5cy80woAMTHihBNlSq2JvfjHgdpfC6H9BBHnohGJMGg0xX2u3kkkHnHVQB17igTcq1ysqxdidF_5us_b2xZ2RUYOI5TPFdk589RGkWKubR29adLvcONBW-wqB6e74qkT55Bnb9Pa3SPbyWvd7DNssAMdDoST7yuYNiZx40Rl7hxpcM_MvzeTLizXGOXaL_OW_HKZyrupteHUshw517PXEMH2WbhYVCW9GV0MWUFdL4BTkdWImunM3wL1NVk.Wrh7ygJaPpOCLC9J2EBSJQ/__results___files/__results___7_0.png)  |  ![](https://i.imgur.com/UaOm0ms.png)
+![](https://ibb.co/sCt5ncc)  |  ![](https://i.imgur.com/UaOm0ms.png)
 
 ### Convelution, ReLu and Max Pooling
 
