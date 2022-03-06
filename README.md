@@ -89,7 +89,7 @@ For example this image here is from the data set. This image will be augemnetion
 
 Before data augmentation   |  After data augmentation
 :-------------------------:|:-------------------------:
-![](https://ibb.co/sCt5ncc)  |  ![](https://i.imgur.com/UaOm0ms.png)
+![](https://i.ibb.co/kJM3jzz/Screenshot-2022-03-06-at-16-01-26.png)  |  ![](https://i.imgur.com/UaOm0ms.png)
 
 ### Convelution, ReLu and Max Pooling
 
