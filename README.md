@@ -116,9 +116,30 @@ A model can use dropout classes; These are computationally cheap and very effect
 #### BatchNormalization!
 Often its preferred to normalize data before it gets fed into the model, mabye normalizing in the middle of the network is better, which is exacly what the BatchNormalization does. 
 
+## Fitting 
 
+```python
+model.compile(
+    optimizer=tf.keras.optimizers.Adam(epsilon=0.01),
+    loss='binary_crossentropy',
+    metrics=['binary_accuracy'],
+)
 
-Now, if it's good to normalize the data before it goes into the network, maybe also normalizing inside the network would be better! In fact, we have a special kind of layer that can do this, the batch normalization layer.
+history = model.fit(
+    ds_train,
+    validation_data=ds_valid,
+    epochs=50,
+)
+
+import pandas as pd
+history_frame = pd.DataFrame(history.history)
+history_frame.loc[:, ['loss', 'val_loss']].plot()
+history_frame.loc[:, ['binary_accuracy', 'val_binary_accuracy']].plot();
+```
+
+## Optemizing
+
+![BayesianOptimization in action](./bayesian_optimization.gif)
 
 
 ![A broad overview](./Broad overview of CNN.png)
@@ -131,4 +152,3 @@ This site was built using [GitHub Pages](https://pages.github.com/).
   <img src="https://github.com/fmfn/BayesianOptimization/blob/master/examples/func.png"><br><br>
 </div>
 
-![BayesianOptimization in action](./bayesian_optimization.gif)
