@@ -93,7 +93,7 @@ Before data augmentation   |  After data augmentation
 
 ### Convelution, ReLu and Max Pooling
 
-Now the CNN; The purpose of a CNN is feature extraction. There are three basic operations in the feature extraction process. 
+Now the CNN; The purpose of a CNN is feature extraction (in other words, to extract certain feutures of a image). There are three basic operations in the feature extraction process. 
 
 1. Filter an image for a particular feature (convolution)
 2. Detect that feature within the filtered image (ReLU)
