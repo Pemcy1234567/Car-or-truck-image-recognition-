@@ -105,7 +105,9 @@ The convolution is layers.Conv2D(), the ReLu is layers.ReLU and the max pooling 
   <img src="https://i.imgur.com/IYO9lqp.png"><br><br>
 </div>
 
-During the filtering step a kernel scans over over an image. Without going into detail, the kernel creates a new image, which has certain features attached to it. In this case the kernel filtered in horizontal lines of the car. After this process, this convoluted image is then passed onto the ReLU function, which allowed for the neural network to 'understnad' the image. In this case all pixels which are not horizontal lines will be turned to 0 and all pixels which are horizontal will be turned into yellow. 
+During the filtering step a kernel scans over over an image. Without going into detail, the kernel creates a new image, which has certain features attached to it. In this case the kernel filtered in horizontal lines of the car. After this process, this convoluted image is then passed onto the ReLU function, which futhremore puts everything unimportant eqivilantly unimporatant (so -1000 and -10 both will be eqivilantly 0). In this case all pixels which are not horizontal lines will be turned to 0 and all pixels which are horizontal will be turned into yellow. Finally, maxpooling will be used to reduce the amount of vairables inside the model, by in simple terms decreasing the quiality of the picture. 
+
+Whilst, thier are alot of Hyperparameters for MaxPooling and ConvNets, the most important hyperparameter is the stride and input_shape. In short, the input shape is the shape inwhich the image is being fed into the network, where the last element is telling us what color-type the image is ([height,widtch,color-type], 3 is RGP, 0 is black and white etc.). Moreover, the stride (which is also mentioned as a hyperparameter in the MaxPooling layer), determines 
 
 ### Sliding window
 ### Dropout
