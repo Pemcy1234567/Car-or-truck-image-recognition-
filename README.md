@@ -109,9 +109,16 @@ During the filtering step a kernel scans over over an image. Without going into 
 
 Whilst, thier are alot of Hyperparameters for MaxPooling and ConvNets, the most important hyperparameter is the stride and input_shape. In short, the input shape is the shape inwhich the image is being fed into the network, where the last element is telling us what color-type the image is ([height,widtch,color-type], 3 is RGP, 0 is black and white etc.). Moreover, the stride (which is also mentioned as a hyperparameter in the MaxPooling layer), determines how good the quiality of the image will be, in short if the stride if high important information will get lost. Its recommended to have a stride of 1 during the Convnet and reLU funktion, as compared to the MaxPooling where a high stride is possiable. This is because potential valuble information will get lost during the Convnet and reLU funktion stage, in comparision to the MaxPooling inwhich its porpose is to reduce data points. 
 
-### Dropout
-### BatchNormalization
+### Special Neurons
+#### Dropout
+A model can use dropout classes; These are computationally cheap and very effective in reducing overfitting, and essetially 'drops out' out nodes randomly during training. The hyperparameter as shown is the percentage of neurons randomly being dropped out. 
 
+#### BatchNormalization!
+Often its preferred to normalize data before it gets fed into the model, mabye normalizing in the middle of the network is better, which is exacly what the BatchNormalization does. 
+
+
+
+Now, if it's good to normalize the data before it goes into the network, maybe also normalizing inside the network would be better! In fact, we have a special kind of layer that can do this, the batch normalization layer.
 
 
 ![A broad overview](./Broad overview of CNN.png)
