@@ -138,6 +138,8 @@ In the first set of line, we are compiling the code or in other words configurin
 
 Secondly, the fit() funktion will put the neural network into action, meaning it will optimize its weights etc., moreover the important hyperpaparmeter here is the epoch. The epoch is how many iterations it will go through the batch or data for it to corrent its weights. 
 
+Lastly, the accuracy will be printed out in the output, and it will be called 'val_binary_accuracy'.
+
 <!-- ## Optemizing
 
 ```python
