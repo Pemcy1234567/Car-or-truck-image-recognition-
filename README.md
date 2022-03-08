@@ -132,19 +132,59 @@ history = model.fit(
     callbacks=[callbacks=[EarlyStopping(monitor='loss'), TerminateOnNaN()]]
 )
 
-import pandas as pd
-history_frame = pd.DataFrame(history.history)
-history_frame.loc[:, ['loss', 'val_loss']].plot()
-history_frame.loc[:, ['binary_accuracy', 'val_binary_accuracy']].plot();
 ```
 
 In the first set of line, we are compiling the code or in other words configuring the model. I wont go into detail about each hyperparameter, however I will talk about the optimizer and loss funktion. A optimizer inside a neural network is the algorithm or method that optimizes the weights such that the neural network can perform. The optimizer.Adam, is just one of many optimizer in the framework, futhremore the loss hyperparameter determines how the optimizer will determine its losses. Often is the case that loss funktions are seperated between catagorial loss funktions and numerical data, in our case since its catagorical data we are using 'binary_crossentropy'. Furthremore, a loss funktion is also called a cost funktion, both words are often intertwined.
 
-
+Secondly, the fit() funktion will put the neural network into action, meaning it will optimize its weights etc., moreover the important hyperpaparmeter here is the epoch. The epoch is how many iterations it will go through the batch or data for it to corrent its weights. 
 
 ## Optemizing
 
+```python
+
+def fit_with(batch_size, learning_rate, de_1, de_2, dp):
+    model = Sequential([
+
+    preprocessing.RandomContrast(0.3),
+
+    layers.Conv2D(filters=32, kernel_size=5, activation="relu", padding='same',
+                  input_shape=[128, 128, 3]),
+    layers.MaxPool2D(),
+
+    layers.Conv2D(filters=64, kernel_size=3, activation="relu", padding='same'),
+    layers.MaxPool2D(),
+
+    layers.Conv2D(filters=128, kernel_size=3, activation="relu", padding='same'),
+    layers.MaxPool2D(),
+
+    layers.Flatten(),
+    layers.Dense(units=12, activation="relu"),
+    layers.Dropout(0.4),
+    layers.BatchNormalization(),
+    layers.Dense(units=12, activation="relu"),
+    layers.Dense(units=1, activation="sigmoid"),
+    ])
+    model.fit(ds_train, validation_data=ds_valid, epochs=50, callbacks=[callbacks=[EarlyStopping(monitor='loss'), TerminateOnNaN()]])
+    prediction = model_1.predict(X_test)
+    acc = mean_absolute_error(y_test, predictions)
+    return float(acc)
+
+
+pbounds = {'batch_size': (10, 150),
+           'learning_rate': (0.01, 0.5),
+           'de_1': (8, 24),
+           'de_2': (8, 24),
+           'dp': (0.2, 0.7)}
+
+optimizer = BayesianOptimization(f=fit_with, pbounds=pbounds)
+
+optimizer.maximize(init_points=50, n_iter=150)
+
+```
+
 ![BayesianOptimization in action](./bayesian_optimization.gif)
+
+
 
 
 ![A broad overview](./Broad overview of CNN.png)
