@@ -138,7 +138,7 @@ In the first set of line, we are compiling the code or in other words configurin
 
 Secondly, the fit() funktion will put the neural network into action, meaning it will optimize its weights etc., moreover the important hyperpaparmeter here is the epoch. The epoch is how many iterations it will go through the batch or data for it to corrent its weights. 
 
-// ## Optemizing
+<!-- ## Optemizing
 
 ```python
 
@@ -185,4 +185,4 @@ optimizer.maximize(init_points=50, n_iter=150)
 
 Here is a optimizing method that I use sometimes, I however won't go into detail.
 
-![BayesianOptimization in action](./bayesian_optimization.gif)
+![BayesianOptimization in action](./bayesian_optimization.gif) -->
