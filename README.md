@@ -185,17 +185,3 @@ optimizer.maximize(init_points=50, n_iter=150)
 Here is a optimizing method that I use sometimes, I however won't go into detail.
 
 ![BayesianOptimization in action](./bayesian_optimization.gif)
-
-
-
-
-![A broad overview](./Broad overview of CNN.png)
-
-<iframe src="https://www.kaggle.com/embed/ryanholbrook/the-convolutional-classifier?cellIds=3&kernelSessionId=79128175" height="300" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="The Convolutional Classifier"></iframe>
-
-This site was built using [GitHub Pages](https://pages.github.com/).
-
-<div align="center">
-  <img src="https://github.com/fmfn/BayesianOptimization/blob/master/examples/func.png"><br><br>
-</div>
-
