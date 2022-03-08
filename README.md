@@ -120,7 +120,7 @@ Often its preferred to normalize data before it gets fed into the model, mabye n
 
 ```python
 model.compile(
-    optimizer=tf.keras.optimizers.Adam(epsilon=0.01),
+    optimizer=tf.keras.optimizers.Adam(),
     loss='binary_crossentropy',
     metrics=['binary_accuracy'],
 )
@@ -129,6 +129,7 @@ history = model.fit(
     ds_train,
     validation_data=ds_valid,
     epochs=50,
+    callbacks=[callbacks=[EarlyStopping(monitor='loss'), TerminateOnNaN()]]
 )
 
 import pandas as pd
@@ -136,6 +137,10 @@ history_frame = pd.DataFrame(history.history)
 history_frame.loc[:, ['loss', 'val_loss']].plot()
 history_frame.loc[:, ['binary_accuracy', 'val_binary_accuracy']].plot();
 ```
+
+In the first set of line, we are compiling the code or in other words configuring the model. I wont go into detail about each hyperparameter, however I will talk about the optimizer and loss funktion. A optimizer inside a neural network is the algorithm or method that optimizes the weights such that the neural network can perform. The optimizer.Adam, is just one of many optimizer in the framework, futhremore the loss hyperparameter determines how the optimizer will determine its losses. Often is the case that loss funktions are seperated between catagorial loss funktions and numerical data, in our case since its catagorical data we are using 'binary_crossentropy'. Furthremore, a loss funktion is also called a cost funktion, both words are often intertwined.
+
+
 
 ## Optemizing
 
