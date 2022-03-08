@@ -182,6 +182,8 @@ optimizer.maximize(init_points=50, n_iter=150)
 
 ```
 
+Here is a optimizing method that I use sometimes, I however won't go into detail.
+
 ![BayesianOptimization in action](./bayesian_optimization.gif)
 
 
