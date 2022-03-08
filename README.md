@@ -126,8 +126,8 @@ model.compile(
 )
 
 history = model.fit(
-    ds_train,
-    validation_data=ds_valid,
+    train_generator,
+    validation_data=test_generator,
     epochs=50,
     callbacks=[callbacks=[EarlyStopping(monitor='loss'), TerminateOnNaN()]]
 )
@@ -138,7 +138,7 @@ In the first set of line, we are compiling the code or in other words configurin
 
 Secondly, the fit() funktion will put the neural network into action, meaning it will optimize its weights etc., moreover the important hyperpaparmeter here is the epoch. The epoch is how many iterations it will go through the batch or data for it to corrent its weights. 
 
-## Optemizing
+// ## Optemizing
 
 ```python
 
@@ -164,8 +164,9 @@ def fit_with(batch_size, learning_rate, de_1, de_2, dp):
     layers.Dense(units=12, activation="relu"),
     layers.Dense(units=1, activation="sigmoid"),
     ])
-    model.fit(ds_train, validation_data=ds_valid, epochs=50, callbacks=[callbacks=[EarlyStopping(monitor='loss'), TerminateOnNaN()]])
-    prediction = model_1.predict(X_test)
+    model.fit(train_generator, validation_data=test_generator, epochs=50, callbacks=[callbacks=[EarlyStopping(monitor='loss'), TerminateOnNaN()]])
+    batch_test = test_generator.next()
+    prediction = model_1.predict(batch_test)
     acc = mean_absolute_error(y_test, predictions)
     return float(acc)
 
