@@ -143,14 +143,6 @@ Lastly, the accuracy will be printed out in the output, and it will be called 'v
 <!-- ## Optemizing
 
 ```python
-
-def fit_with(batch_size, learning_rate, de_1, de_2, dp):
-    model = Sequential([
-
-    preprocessing.RandomContrast(0.3),
-
-    layers.Conv2D(filters=32, kernel_size=5, activation="relu", padding='same',
-                  input_shape=[128, 128, 3]),
     layers.MaxPool2D(),
 
     layers.Conv2D(filters=64, kernel_size=3, activation="relu", padding='same'),
